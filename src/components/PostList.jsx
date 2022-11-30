@@ -1,27 +1,21 @@
 import { useState, useEffect } from "react";
-import Header from "Header";
+import Header from "./Navbar";
 
-export default function Header() {
-    const [post, setPost] = useState();
-    const getAllPost = () => {
-        fetch("https://united-project-c8.web.app")
-        .then(post => post.json())
-        .then(post => setPost(post.message))
-        .catch(console.error)
-    }
-}
-
-useEffect(getAllPost, [] ); {
+export default function PostList({toggle}) {
+  const [post, setPost] = useState();
+  useEffect(() => {
+    fetch("https://united-project-c8.web.app/items")
+      .then((response) => response.json())
+      .then((post) => setPost(post.message))
+      .catch(alert);
+  }, [toggle]
+  )   
     return (
-        <main>
-            <h2>Post go here</h2>
-            {
-                !post
-                ? <p>Loading...</p>
-                : post.map(album => (
-                    <Post post={post} />
-                ))
+        <main className="post-list">
+            {!post
+                ? <p>Loading..</p>
+                : post.map(thisPost => <Header key={thisPost.postId} thisPost={thisPost}/> )
             }
         </main>
-    )
-}
+      )
+    }
