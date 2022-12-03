@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { initializeApp } from "firebase/app";
 import { getStorage, ref, uploadBytes } from "firebase/storage";
 
+
 const firebaseConfig = {
   apiKey: "AIzaSyDXCI7-Qg7g0yEOMdlWRdrlV_fkweAH204",
   authDomain: "united-backk.firebaseapp.com",
@@ -24,14 +25,14 @@ export default function Upload() {
     // connect to firebase project
     const app = initializeApp(firebaseConfig);
 
-    // connect to our storage bucket
+    // // connect to our storage bucket
     const storage = getStorage(app);
 
-    // create a reference to our file in storage
+    // // create a reference to our file in storage
     const filename = selectedFile?.name;
     const imageRef = ref(storage, "photos/" + filename);
 
-    // upload file to bucket
+  //   // upload file to bucket
     uploadBytes(imageRef, selectedFile).then(() => {
     // create the url from reference
       setUrl(

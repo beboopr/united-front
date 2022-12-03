@@ -1,21 +1,27 @@
 import { useState, useEffect } from "react";
-import Header from "./Navbar";
+import ItemCard from "./ItemCard";
 
-export default function PostList({toggle}) {
+export default function PostList({ toggle }) {
   const [post, setPost] = useState();
   useEffect(() => {
-    fetch("https://united-project-c8.web.app/items")
+    // fetch("https://united-project-c8.web.app/items")
+    fetch("http://127.0.0.1:5002/items")
       .then((response) => response.json())
-      .then((post) => setPost(post.message))
+      .then((post) => {
+        setPost(post);
+        //console.log(post);
+      })
       .catch(alert);
-  }, [toggle]
-  )   
-    return (
-        <main className="post-list">
-            {!post
-                ? <p>Loading..</p>
-                : post.map(thisPost => <Header key={thisPost.postId} thisPost={thisPost}/> )
-            }
-        </main>
-      )
-    }
+  }, [toggle]);
+  return (
+    <main className="post-list">
+      {!post ? (
+        <p>Loading..</p>
+      ) : (
+        post.map((thisPost) => (
+          <ItemCard key={thisPost.itemsId} thisPost={thisPost} />
+        ))
+      )}
+    </main>
+  );
+}

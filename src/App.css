@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+.Condition {
+  flex: content;
+  margin-right: 68px;
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
