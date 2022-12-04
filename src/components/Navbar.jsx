@@ -1,12 +1,13 @@
+import { AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
+import { Menu } from 'antd';
 import React from 'react';
 // import './index.css';
-import { Menu } from 'antd';
-import { AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
+// import PostList from './PostList';
 
 const App = () => (
   <Menu mode="horizontal" defaultSelectedKeys={['mail']}>
     <Menu.Item key="mail" icon={<AppstoreOutlined />}>
-      Menu
+      Home
     </Menu.Item>
     <Menu.SubMenu key="SubMenu" title="Options" icon={<SettingOutlined />}>
       <Menu.Item key="two" icon={<AppstoreOutlined />}>
