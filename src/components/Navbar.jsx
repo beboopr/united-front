@@ -11,7 +11,7 @@ export default function App() {
     <Menu mode="horizontal" defaultSelectedKeys={["mail"]}>
       <Divider type="vertical" className="united" />
       United
-      <Link to="/home">
+      <Link to="/">
         <Menu.Item key="mail" icon={<AppstoreOutlined />}>
           Home
         </Menu.Item>

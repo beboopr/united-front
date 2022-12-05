@@ -1,39 +1,38 @@
-// import PostList from './PostList'
-// import { Link } from 'react-router-dom'
-
-// export default function Home() {
-//   return (
-//     <>
-//     {/* <PostList title={'Home'} /> */}
-//       <h1>hi</h1>
-//       </>
-//   )
-// }
-
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react";
 
-export default function Oneitem() {
+export default function Home() {
   const { id } = useParams()
-  const [post, setPost] = useState();
+  const [items, setItems] = useState();
   useEffect(() => {
       // fetch("https://united-project-c8.web.app/items")
-      fetch("http://127.0.0.1:5002/items")
+      fetch("http://127.0.0.1:5003/items")
         .then((response) => response.json())
-        .then((posts) => {
-          posts = posts.filter(p => p.itemsId === id)
-          setPost(posts[0]);
-          console.log(posts[0]);
+        .then((items) => {
+          // items = items.filter(p => p.itemsId === id)
+          setItems(items);
+          // console.log(items[0]);
+          console.log(items)
         })
         .catch(alert);
-    }, [id]);
+    }, [setItems]);
 
   return (
       <>
-      { !post ? <h1>Loading...</h1> : 
+      {!items ? <h1>Feed goes here...</h1> : 
       <>
-      <h1>condition: {post.condition}</h1>
-      <h1>name: {post.name}</h1>
+      {items.map(item => {
+        return(
+          <div key={item.itemId}>
+                <h1>condition: {item.description}</h1>
+                <h1>name: {item.title}</h1>
+                <h1>zip: {item.zip}</h1>
+                {item.fileurl ? <img src={item.fileurl} alt={item.title} width={300} /> : <></> }
+                <hr />
+          </div>
+
+        )
+      })}
       </>
       }
       </>
