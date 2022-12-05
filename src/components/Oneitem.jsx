@@ -9,12 +9,12 @@ export function Oneitem() {
         fetch("http://127.0.0.1:5002/items")
           .then((response) => response.json())
           .then((posts) => {
-            posts = posts.filter(p => p.itemsId == id)
+            posts = posts.filter(p => p.itemsId === id)
             setPost(posts[0]);
             console.log(posts[0]);
           })
           .catch(alert);
-      }, []);
+      }, [id]);
 
     return (
         <>

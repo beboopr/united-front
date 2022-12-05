@@ -2,7 +2,6 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import Home from './components/Home'
 import Navbar from "./components/Navbar"
-import Header from "./components/Header";
 import Form from "./components/Form";
 import { Oneitem } from './components/Oneitem';
 import { Upload } from 'antd';
@@ -14,7 +13,6 @@ function App() {
       <>
    
       <BrowserRouter>
-      <Header /> 
       <Navbar /> 
       <Routes > 
       <Route path="/home" element={<Home/>} />
