@@ -3,9 +3,8 @@ import PostList from './PostList'
 
 export default function Home() {
   return (
-    <>
-      <PostList title={'Home'} />
-      <h1>hello</h1>
-    </>
+    <><PostList title={'Home'} />
+      <h1>hi</h1>
+      </>
   )
 }

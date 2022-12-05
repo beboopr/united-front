@@ -1,19 +1,37 @@
 // pictures goes here
-import { Form, Input, Button, Cascader, Upload, Select } from 'antd';
-import { PlusOutlined } from '@ant-design/icons';
+import { Form, Input, Button, Cascader,  Select } from 'antd';
+// import { PlusOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
-
+//import {  useNavigate } from 'react-router-dom';
 
 const { TextArea } = Input;
+
 export default function ProductForm() {
+  const [post, setPost] = useState({});
 // const Component = () => {
-  const [Component, setComponent] = useState();
-  const handleChange = (value) => {
-    console.log(`selected ${value}`);
+  // const [Component, setComponent] = useState();
+  const handleChange = () => {
+console.log(post)
+    // fetch("https://united-project-c8.web.app/items")
+    fetch("http://127.0.0.1:5002/items", { 
+    method: 'POST',
+    headers: { 'Content-Type' : 'application/json' },
+  body: JSON.stringify(post)
+})
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data)
+        setPost(data);
+        //console.log(post);
+      })
+      .catch(alert);
   };
-  const onFormLayoutChange = ({ enabled }) => {
-    setComponent(enabled);
-  };
+  const handleForm = (e) => {
+    console.log(e.target.name)
+    console.log(e.target.value)
+    setPost({...post, [e.target.name]: e.target.value})
+  }
+
   return (
     <>
       <Form
@@ -24,20 +42,21 @@ export default function ProductForm() {
           span: 14,
         }}
         layout="horizontal"
-        onValuesChange={onFormLayoutChange}
-        enabled={Component}>
-        <Form.Item label="Title">
+       >
+        <Form.Item name='title' label="Title">
           <Input />
         </Form.Item>
         <Form.Item label="Zip">
           <Input />
         </Form.Item>
-        <Form.Item label="Condition">
+        <Form.Item label="Condition"  name='condition' onChange={handleForm}>
+      
         <Select 
        
       className='Condition'
       style={{ width: 350,  }}
-      onChange={handleChange}
+      
+    
       options={[
         {
           value: 'New',
@@ -72,8 +91,8 @@ export default function ProductForm() {
           <TextArea rows={4} />
         </Form.Item>
 
-        <Form.Item label="Upload" valuePropName="fileList">
-          <Upload action="/upload.do" listType="picture-card">
+        {/* <Form.Item label="Upload" valuePropName="fileList">
+          <Upload action="/upload" listType="picture-card">
             <div>
               <PlusOutlined />
               <div
@@ -85,11 +104,11 @@ export default function ProductForm() {
               </div>
             </div>
           </Upload>
-        </Form.Item>
-        <Form.Item label="Submit">
-          <Button>Click here</Button>
-        </Form.Item>
+        </Form.Item> */}
+        <Button type='primary' htmlType='submit' onClick={handleChange}>
+          Submit
+        </Button>
       </Form>
     </>
   );
-};
+}
