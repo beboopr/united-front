@@ -1,0 +1,21 @@
+:root{
+--Text-color: black;
+--SubText-color: rgb(0, 34, 255);
+}
+.home {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card{
+    margin: 10px ;
+}
+
+.condition {
+color: var(--Text-color)
+}
+
+.itemscond {
+color: var(--SubText-color);
+}

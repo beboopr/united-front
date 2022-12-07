@@ -1,12 +1,10 @@
-// pictures goes here
-import { Form, Input, Button, Cascader, Upload, Select } from "antd";
-import { PlusOutlined } from "@ant-design/icons";
-import { useNavigate } from 'react-router-dom';
-
 import React, { useState } from "react";
+import { Form, Input, Button, Cascader, Upload, Select } from "antd";
+// import { PlusOutlined } from "@ant-design/icons";
+import { useNavigate } from 'react-router-dom';
 import { initializeApp } from "firebase/app";
 import { getStorage, ref, uploadBytes } from "firebase/storage";
-
+import '../assets/Form.css'
 
 const firebaseConfig = {
   apiKey: "AIzaSyDXCI7-Qg7g0yEOMdlWRdrlV_fkweAH204",
@@ -21,17 +19,10 @@ const { TextArea } = Input;
 
 export default function ProductForm() {
   const [selectedFile, setSelectedFile] = useState();
-  // const [url, setUrl] = useState();
-
-
 
   const navigate = useNavigate();
   const onFinish = (post) => {
     console.log(post);
-    // get file from post post.files[0] ??
-    // upload file
-    // AFTER... then update post to file = undefined and imageUrl = `https://firebasestorage.googleapis.com/v0/b/united-backk.appspot.com/o/photos%2F${filename}?alt=media`
-    // THEN send fetch (below)
       
     if (!selectedFile) {
       alert("Please select a file to Upload!");
@@ -66,15 +57,7 @@ export default function ProductForm() {
           navigate('/');
         })
         .catch(alert);
-      
-
-
     });
-
-
-
-
-
   };
 
   return (
@@ -89,17 +72,15 @@ export default function ProductForm() {
         layout="horizontal"
         onFinish={onFinish}
       >
-        <Form.Item name="title" label="Title" rules={[{
-          required: true, message: 'please enter title'
-        }]}>
+        <Form.Item name="title" label="Title" 
+        rules={[{ required: true, message: 'please enter title' }]}>
           <Input />
         </Form.Item>
 
         <Form.Item 
         label="Zip" 
         name="zip"
-        rules={[{ required: true, message: 'please enter Zipcode'
-        }]}>
+        rules={[{ required: true, message: 'please enter Zipcode' }]}>
           <Input />
         </Form.Item>
 
@@ -142,16 +123,18 @@ export default function ProductForm() {
 
         <Form.Item label="Upload" valuePropName="fileList">
 
-      <input
+        <input
+        className="UploadButton"
         type="file"
         name="photo"
         onChange={(e) => setSelectedFile(e.currentTarget.files[0])}
-      />
+        />
           {/* <Upload
             action="/upload"
             listType="picture-card"
             type="primary"
             htmlType="submit"
+            onChange={(e) => setSelectedFile(e.currentTarget.files[0])}
           >
             <div>
               <PlusOutlined />
