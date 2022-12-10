@@ -1,21 +1,50 @@
-:root{
---Text-color: black;
---SubText-color: rgb(0, 34, 255);
-}
 .home {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    background-color: var(--background-color);
+    outline: 1px solid
 }
+
 
 .card{
     margin: 10px ;
+    outline: 2px solid rgb(32, 116, 176);
+    
 }
 
-.condition {
-color: var(--Text-color)
+.title {
+color: var(--Text-color)   
 }
 
 .itemscond {
+color: var(--SubText-color);
+}
+
+.condition {
+    color: var(--Text-color);
+}
+
+.category {
+color: var(--Text-color);
+}
+
+.itemscateg {
+    color: var(--SubText-color);
+}
+
+.description {
+color: var(--Text-color);
+}
+
+.itemsdescrip {
+color: var(--SubText-color);
+}
+
+.city {
+color: var(--Text-color);
+}
+
+.itemscity {
 color: var(--SubText-color);
 }

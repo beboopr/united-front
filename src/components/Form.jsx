@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Form, Input, Button, Cascader, Upload, Select } from "antd";
-// import { PlusOutlined } from "@ant-design/icons";
+import { Form, Input, Button, Cascader, Select } from "antd";
 import { useNavigate } from 'react-router-dom';
 import { initializeApp } from "firebase/app";
 import { getStorage, ref, uploadBytes } from "firebase/storage";
@@ -19,7 +18,6 @@ const { TextArea } = Input;
 
 export default function ProductForm() {
   const [selectedFile, setSelectedFile] = useState();
-
   const navigate = useNavigate();
   const onFinish = (post) => {
     console.log(post);
@@ -31,21 +29,21 @@ export default function ProductForm() {
     // connect to firebase project
     const app = initializeApp(firebaseConfig);
 
-    // // connect to our storage bucket
+    // connect to our storage bucket
     const storage = getStorage(app);
 
-    // // create a reference to our file in storage
+    // create a reference to our file in storage
     const filename = selectedFile?.name;
     const imageRef = ref(storage, "photos/" + filename);
 
-  //   // upload file to bucket
+    // upload file to bucket
     uploadBytes(imageRef, selectedFile).then(() => {
     // create the url from reference
       const url = `https://firebasestorage.googleapis.com/v0/b/united-backk.appspot.com/o/photos%2F${filename}?alt=media`
     
       post.fileurl = url
       // fetch("https://united-project-c8.web.app/items")
-      fetch("http://127.0.0.1:5003/items", {
+      fetch("http://127.0.0.1:5002/items", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(post),
@@ -78,13 +76,13 @@ export default function ProductForm() {
         </Form.Item>
 
         <Form.Item 
-        label="Zip" 
-        name="zip"
-        rules={[{ required: true, message: 'please enter Zipcode' }]}>
+        label="City" 
+        name="city"
+        rules={[{ required: true, message: 'please enter City' }]}>
           <Input />
         </Form.Item>
 
-        <Form.Item label="Condition" name="condition">
+        <Form.Item label="Condition" name="condition" rules={[{ required: true, message: 'please select condition' }]}>
           <Select
             className="Condition"
             style={{ width: 350 }}
@@ -100,12 +98,13 @@ export default function ProductForm() {
             ]}
           ></Select>
         </Form.Item>
-        <Form.Item label="Category" name="category">
+        <Form.Item label="Category" name="category" rules={[{ required: true, message: 'please select a Category' }]}>
           <Cascader
             options={[
               {
-                value: "Home & Garden",
-                label: "Home & Garden",
+                value: "Utilities",
+                label: "Utilities",
+                  
                 children: [
                   {
                     value: "Clothing, Accessories",
@@ -117,12 +116,11 @@ export default function ProductForm() {
           />
         </Form.Item>
 
-        <Form.Item name="description" label="Descrip">
+        <Form.Item name="description" label="Descrip" rules={[{ required: true, message: 'please enter a Description' }]}>
           <TextArea rows={4} />
         </Form.Item>
 
         <Form.Item label="Upload" valuePropName="fileList">
-
         <input
         className="UploadButton"
         type="file"

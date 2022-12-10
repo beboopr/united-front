@@ -1,18 +1,26 @@
-import { AppstoreOutlined,SettingOutlined,CheckOutlined,CloseOutlined,} from "@ant-design/icons";
-import { Menu, Divider, Switch, Space } from "antd";
-import { Link, useNavigate } from "react-router-dom";
+import { 
+  AppstoreOutlined,
+  SettingOutlined,
+  CheckOutlined,
+  CloseOutlined,
+  HomeOutlined } from "@ant-design/icons";
+import { Menu, Divider, Switch } from "antd";
 import React from "react";
-// import './Navbar.css';
+import { useNavigate } from "react-router-dom";
 
-export default function App() {
-  const navigation = useNavigate();
-  return (
-    <Menu mode="horizontal" defaultSelectedKeys={["mail"]}>
+export default function App({theme, setTheme}) {
+    const toogleTheme = () => {
+    setTheme((curr) => (curr === "light" ? "dark" : "light" ));
+  }
+    const navigation = useNavigate();
+    return (
+    <div className="menu" >
+    <Menu data-theme={theme} className="menu" mode="horizontal" defaultSelectedKeys={["mail"]}>
       <Divider type="vertical" className="united" />
       United
       <Menu.Item
         key="mail"
-        icon={<AppstoreOutlined />}
+        icon={<HomeOutlined />}
         onClick={() => navigation("/")}
       >
         Home
@@ -35,22 +43,22 @@ export default function App() {
               unCheckedChildren={<CloseOutlined />}
               size="small"
               defaultChecked
-            />
-          }
-        >
-          Dark Mode
+              onChange={toogleTheme}
+              checked={theme === "dark"} /> } >
+              Dark Mode {/* Working */}
         </Menu.Item>
+
         <Menu.ItemGroup title="Item Group">
-          {/* <Link to=""> edit post  */}
           <Menu.Item key="four" icon={<AppstoreOutlined />}>
             Edit
           </Menu.Item>
-          {/* <Link to=""> delete post */}
           <Menu.Item key="five" icon={<AppstoreOutlined />}>
             Delete
           </Menu.Item>
         </Menu.ItemGroup>
+
       </Menu.SubMenu>
-    </Menu>
+      </Menu>
+    </div>
   );
 }

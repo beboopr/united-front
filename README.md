@@ -1,6 +1,53 @@
-# Creating Final Project with React
+# Creating Final Project For School Graduation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was created with [ React App ]
+
+# United | Project
+
+This app is build to help people give and donate anything that other people may need in use.
+
+## Features
+
+- Full Stack App
+- Light/dark mode toggle
+- Live previews
+- Fullscreen mode
+- Cross platform
+- Mobile responsive
+
+## Screenshots
+
+![App Screenshot] (
+    https://ibb.co/r744j76
+    https://ibb.co/fQHFSsw
+    https://ibb.co/RQwHtgj
+    https://ibb.co/6BrmKsZ
+    https://ibb.co/Z8SpQGH
+    
+)
+
+## Demo
+
+Link To Demo
+
+https://united-project-c8.web.app/
+
+## Deployment
+
+To deploy this project run
+
+```bash
+  npm run deploy
+```
+
+## Running Tests
+
+To run tests, run the following command
+
+```bash
+  npm run test
+```
+
 
 ## Available Scripts Here
 
@@ -8,26 +55,14 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Runs the app in the development mode.\ Open 
+[http://127.0.0.1:5002/items]
+[https://united-project-c8.web.app/items]
+to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ### `npm run eject`
 
@@ -41,30 +76,16 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 
 ## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Support
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+For support, send me a message on Linkedin.
 
-### Analyzing the Bundle Size
+https://www.linkedin.com/in/edgar-david/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+## Author
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [@Edgar Davila](https://www.linkedin.com/in/edgar-david/)
+- [@beboopr] [https://github.com/beboopr]
