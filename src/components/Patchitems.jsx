@@ -7,13 +7,12 @@ const { TextArea } = Input;
 
 export default function Patchitems() {
   const navigate = useNavigate();
-
   const [file, setFile] = useState();
 
   const handleAccountUpdate = (values) => {
     console.log("values ->", values);
     // fetch("https://united-project-c8.web.app/items")
-    fetch(`http://127.0.0.1:5003/items/${file.itemsId}`, {
+    fetch(`http://127.0.0.1:5002/items/${file.itemsId}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),
