@@ -11,12 +11,13 @@ export default function Patchitems() {
 
   const handleAccountUpdate = (values) => {
     console.log("values ->", values);
-    // fetch("https://united-project-c8.web.app/items")
-    fetch(`http://127.0.0.1:5002/items/${file.itemsId}`, {
+    fetch(`https://united-project-c8.web.app/`)
+    // fetch(`http://127.0.0.1:5002/items/${file.itemsId}`)
+    , {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),
-    })
+    }
       .then((response) => response.json())
       .then((data) => {
         setFile(data);

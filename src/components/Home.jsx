@@ -13,8 +13,8 @@ export default function Home() {
   const [items, setItems] = useState();
   console.log(items);
   useEffect(() => {
-    // fetch("https://united-project-c8.web.app/items")
-    fetch("http://127.0.0.1:5002/items")
+    fetch("https://united-project-c8.web.app/items")
+    // fetch("http://127.0.0.1:5002/items")
       .then((response) => response.json())
       .then((items) => {
         // items = items.filter(p => p.itemsId === id)
