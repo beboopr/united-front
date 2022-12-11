@@ -5,9 +5,9 @@ import Patchitems from "./components/Patchitems";
 import Navbar from "./components/Navbar";
 import Form from "./components/Form";
 import Home from "./components/Home";
-// import Profile from "./components/Profile";
-// import Singup from "./components/Singup";
-// import Login from "./components/Login";
+// import Profile from "./security/Profile";
+// import Singup from "./security/Singup";
+// import Login from "./security/Login";
 import "./App.css";
 
 export const ThemeContext = createContext(null);
@@ -23,18 +23,13 @@ function App() {
           <>
             <Navbar theme={theme} setTheme={setTheme} />
             <Routes>
-            {/* { !user
-    ? <><Login setUser={setUser} /><Singup setUser={setUser}/></>
-    : <Home />
-  } */}
-            {/* {user ? (
-        <Route path="/profile" element={<Profile token={token} setUser={setUser} user={user} />} />
-      ) : (
-        <>
-          <Route path="/singup" element={<Singup setToken={setToken} setUser={setUser} />} />
-          <Route path="/login" element={<Login setToken={setToken} setUser={setUser} />} />
-        </>
-      )} */}
+            {/* {user
+            ? <Route path='/profile' element={<Profile token={token} setUser={setUser} user={user} />} />
+            : <>
+              <Route path='/' element={<Login setToken={setToken} setUser={setUser} />} />
+              <Route path='/new' element={<Signup setToken={setToken} setUser={setUser} />} />
+            </>
+          } */}
               <Route path="/" element={<Home />} />
               <Route path="/newpost" element={<Upload />} />
               <Route path="/form" element={<Form />} />

@@ -18,6 +18,7 @@ const { TextArea } = Input;
 
 export default function ProductForm() {
   const [selectedFile, setSelectedFile] = useState();
+  const [file, setFile] = useState();
   const navigate = useNavigate();
   const onFinish = (post) => {
     console.log(post);
@@ -42,7 +43,7 @@ export default function ProductForm() {
       const url = `https://firebasestorage.googleapis.com/v0/b/united-backk.appspot.com/o/photos%2F${filename}?alt=media`;
       post.fileurl = url
 
-      fetch(`https://united-project-c8.web.app/items${file.itemsId}`, {
+      fetch("https://united-project-c8.web.app/items", {
         //  fetch("http://127.0.0.1:5002/items" , {
         method: "POST",
         headers: { "Content-Type": "application/json" },
