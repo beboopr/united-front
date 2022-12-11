@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Form, Input, Button, Cascader, Select } from "antd";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { initializeApp } from "firebase/app";
 import { getStorage, ref, uploadBytes } from "firebase/storage";
-import '../assets/Form.css'
+import "../assets/Form.css";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDXCI7-Qg7g0yEOMdlWRdrlV_fkweAH204",
@@ -21,7 +21,7 @@ export default function ProductForm() {
   const navigate = useNavigate();
   const onFinish = (post) => {
     console.log(post);
-      
+
     if (!selectedFile) {
       alert("Please select a file to Upload!");
       return;
@@ -38,22 +38,21 @@ export default function ProductForm() {
 
     // upload file to bucket
     uploadBytes(imageRef, selectedFile).then(() => {
-    // create the url from reference
-      const url = `https://firebasestorage.googleapis.com/v0/b/united-backk.appspot.com/o/photos%2F${filename}?alt=media`
-    
+      // create the url from reference
+      const url = `https://firebasestorage.googleapis.com/v0/b/united-backk.appspot.com/o/photos%2F${filename}?alt=media`;
       post.fileurl = url
-      fetch("https://united-project-c8.web.app/")
-      // fetch("http://127.0.0.1:5002/items")
-      , {
+      
+      // fetch(`https://united-project-c8.web.app/items${file.itemsId}`, {
+         fetch("http://127.0.0.1:5002/items" , {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(post),
-      }
+      })
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
           console.log(post);
-          navigate('/');
+          navigate("/");
         })
         .catch(alert);
     });
@@ -71,19 +70,27 @@ export default function ProductForm() {
         layout="horizontal"
         onFinish={onFinish}
       >
-        <Form.Item name="title" label="Title" 
-        rules={[{ required: true, message: 'please enter title' }]}>
+        <Form.Item
+          name="title"
+          label="Title"
+          rules={[{ required: true, message: "please enter title" }]}
+        >
           <Input />
         </Form.Item>
 
-        <Form.Item 
-        label="City" 
-        name="city"
-        rules={[{ required: true, message: 'please enter City' }]}>
+        <Form.Item
+          label="City"
+          name="city"
+          rules={[{ required: true, message: "please enter City" }]}
+        >
           <Input />
         </Form.Item>
 
-        <Form.Item label="Condition" name="condition" rules={[{ required: true, message: 'please select condition' }]}>
+        <Form.Item
+          label="Condition"
+          name="condition"
+          rules={[{ required: true, message: "please select condition" }]}
+        >
           <Select
             className="Condition"
             style={{ width: 350 }}
@@ -99,13 +106,17 @@ export default function ProductForm() {
             ]}
           ></Select>
         </Form.Item>
-        <Form.Item label="Category" name="category" rules={[{ required: true, message: 'please select a Category' }]}>
+        <Form.Item
+          label="Category"
+          name="category"
+          rules={[{ required: true, message: "please select a Category" }]}
+        >
           <Cascader
             options={[
               {
                 value: "Utilities",
                 label: "Utilities",
-                  
+
                 children: [
                   {
                     value: "Clothing, Accessories",
@@ -117,17 +128,21 @@ export default function ProductForm() {
           />
         </Form.Item>
 
-        <Form.Item name="description" label="Descrip" rules={[{ required: true, message: 'please enter a Description' }]}>
+        <Form.Item
+          name="description"
+          label="Descrip"
+          rules={[{ required: true, message: "please enter a Description" }]}
+        >
           <TextArea rows={4} />
         </Form.Item>
 
         <Form.Item label="Upload" valuePropName="fileList">
-        <input
-        className="UploadButton"
-        type="file"
-        name="photo"
-        onChange={(e) => setSelectedFile(e.currentTarget.files[0])}
-        />
+          <input
+            className="UploadButton"
+            type="file"
+            name="photo"
+            onChange={(e) => setSelectedFile(e.currentTarget.files[0])}
+          />
           {/* <Upload
             action="/upload"
             listType="picture-card"
