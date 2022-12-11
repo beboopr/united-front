@@ -11,8 +11,8 @@ export default function Patchitems() {
 
   const handleAccountUpdate = (values) => {
     console.log("values ->", values);
-    fetch(`https://united-project-c8.web.app/items` , {
-//  fetch(`http://127.0.0.1:5002/items/${file.itemsId}` ,{
+    fetch(`https://united-project-c8.web.app/items${file.itemsId}` , {
+//  fetch("http://127.0.0.1:5002/items/ ,{
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values)

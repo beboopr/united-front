@@ -43,7 +43,7 @@ export default function ProductForm() {
       const url = `https://firebasestorage.googleapis.com/v0/b/united-backk.appspot.com/o/photos%2F${filename}?alt=media`;
       post.fileurl = url
 
-      fetch("https://united-project-c8.web.app/items", {
+      fetch(`https://united-project-c8.web.app/items${file.itemsId}`, {
         //  fetch("http://127.0.0.1:5002/items" , {
         method: "POST",
         headers: { "Content-Type": "application/json" },
