@@ -48,14 +48,14 @@ export default function App({theme, setTheme}) {
               Dark Mode {/* Working */}
         </Menu.Item>
 
-        <Menu.ItemGroup title="Item Group">
+           {/* <Menu.ItemGroup title="Item Group">
           <Menu.Item key="four" icon={<AppstoreOutlined />}>
             Edit
           </Menu.Item>
           <Menu.Item key="five" icon={<AppstoreOutlined />}>
             Delete
           </Menu.Item>
-        </Menu.ItemGroup>
+        </Menu.ItemGroup> */}
 
       </Menu.SubMenu>
       </Menu>

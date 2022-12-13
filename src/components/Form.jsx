@@ -49,7 +49,7 @@ export default function ProductForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(post),
       })
-        .then((response) => response.json())
+        .then((response) => response.json()) //METHOD
         .then((data) => {
           console.log(data);
           console.log(post);
@@ -69,7 +69,7 @@ export default function ProductForm() {
           span: 14,
         }}
         layout="horizontal"
-        onFinish={onFinish}
+        onFinish={onFinish} // CALL BACK FUNCTION
       >
         <Form.Item
           name="title"
