@@ -2,3 +2,13 @@
 .addPost {
     display: flex;
 }
+
+.primary{
+    display: flex;
+    flex-direction: row;
+}
+
+.onclick{
+    display: flex;
+    flex-direction: column;
+}

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Form, Input, Button, Cascader, Select } from "antd";
+import { Form, Input, Button, Cascader, Select, Upload } from "antd";
+// import { UploadOutlined } from '@ant-design/icons';
 import { useNavigate } from "react-router-dom";
 import { initializeApp } from "firebase/app";
 import { getStorage, ref, uploadBytes } from "firebase/storage";
@@ -43,8 +44,8 @@ export default function ProductForm() {
       const url = `https://firebasestorage.googleapis.com/v0/b/united-backk.appspot.com/o/photos%2F${filename}?alt=media`;
       post.fileurl = url
 
-      fetch("https://united-backk.web.app/items", {
-        //  fetch("http://127.0.0.1:5002/items" , {
+      // fetch("https://united-backk.web.app/items", {
+         fetch("http://127.0.0.1:5002/items" , {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(post),
@@ -144,6 +145,13 @@ export default function ProductForm() {
             name="photo"
             onChange={(e) => setSelectedFile(e.currentTarget.files[0])}
           />
+{/* <Upload>
+
+<Button onChange={(e) => setSelectedFile(e.currentTarget.files[0])} >
+<UploadOutlined /> Click to Upload
+</Button>
+
+</Upload> */}
         </Form.Item>
         <Button type="primary" htmlType="submit">
           Submit

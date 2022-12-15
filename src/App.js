@@ -5,23 +5,35 @@ import Patchitems from "./components/Patchitems";
 import Navbar from "./components/Navbar";
 import Form from "./components/Form";
 import Home from "./components/Home";
+import Login from "./components/security/Login";
+import Profile from "./components/security/Profile";
+import Singup from "./components/security/Singup";
 import "./App.css";
 
 export const ThemeContext = createContext(null);
 
 function App() {
+  const [ user, setUser ] = useState()
   const [theme, setTheme] = useState("light");
   return (
     <BrowserRouter>
       <ConfigProvider theme={{ algorithm: (theme==='dark') ? themed.darkAlgorithm : themed.defaultAlgorithm }}>
         <div data-theme={theme} className="App">
           <>
-            <Navbar theme={theme} setTheme={setTheme} />
+            { !user
+              ? <>
+              <Singup path='/singup' setUser={setUser} element={<Singup />}/>
+              </>
+              : <Route path="/" element={<Home />} />
+            }
             <Routes>
-              <Route path="/" element={<Home />} />
+            <Route element={ <Navbar theme={theme} setTheme={setTheme}/>} />
+              
               <Route path="/newpost" element={<Upload />} />
               <Route path="/form" element={<Form />} />
               <Route path="/updateform" element={<Patchitems />} />
+              <Route path="/login" element={<Login />} />
+              <Route path='/profile' element={<Profile />} />
             </Routes>
           </>
         </div>

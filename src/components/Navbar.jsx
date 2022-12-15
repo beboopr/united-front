@@ -4,14 +4,32 @@ import {
   CheckOutlined,
   CloseOutlined,
   HomeOutlined } from "@ant-design/icons";
-import { Menu, Divider, Switch } from "antd";
+import { Menu, Divider, Switch, Button, Dropdown, Space } from "antd";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
+
 export default function App({theme, setTheme}) {
-    const toogleTheme = () => {
+  const toogleTheme = () => {
     setTheme((curr) => (curr === "light" ? "dark" : "light" ));
   }
+  const onMenuClick = (e) => {
+    console.log('click', e);
+  };
+  const items = [
+    {
+      key: '1',
+      label: '1st item',
+    },
+    {
+      key: '2',
+      label: '2nd item',
+    },
+    {
+      key: '3',
+      label: '3rd item',
+    },
+  ];
     const navigation = useNavigate();
     return (
     <div className="menu" >
@@ -26,7 +44,6 @@ export default function App({theme, setTheme}) {
         Home
       </Menu.Item>
       <Menu.SubMenu key="SubMenu" title="Options" icon={<SettingOutlined />}>
-        {/* <Link to="/form"> */}
         <Menu.Item
           key="two"
           icon={<AppstoreOutlined />}
@@ -34,7 +51,6 @@ export default function App({theme, setTheme}) {
         >
           Add Post
         </Menu.Item>
-        {/* <Link to=""> save location page */}
         <Menu.Item
           key="three"
           icon={
@@ -58,6 +74,17 @@ export default function App({theme, setTheme}) {
         </Menu.ItemGroup> */}
 
       </Menu.SubMenu>
+      <Space direction="vertical">
+    <Dropdown.Button
+    className="onclick"
+      menu={{
+        items,
+        onClick: onMenuClick,
+      }}
+    >
+      Actions
+    </Dropdown.Button>
+  </Space>
       </Menu>
     </div>
   );
