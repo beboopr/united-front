@@ -1,5 +1,7 @@
+import { 
+  // Avatar, 
+  Card, Collapse, Spin } from "antd";
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from "@ant-design/icons";
-import { Avatar, Card, Collapse, Spin } from "antd";
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "../assets/Home.css";

@@ -4,7 +4,6 @@ import { createContext, useState } from "react";
 import Patchitems from "./components/Patchitems";
 import Navbar from "./components/Navbar";
 import Form from "./components/Form";
-import Home from "./components/Home";
 import Login from "./components/security/Login";
 import Profile from "./components/security/Profile";
 import Singup from "./components/security/Singup";
@@ -24,15 +23,13 @@ function App() {
               ? <>
               <Singup path='/singup' setUser={setUser} element={<Singup />}/>
               </>
-              : <Route path="/" element={<Home />} />
+              : <Login path="/login" setUser={setUser} element={<Login />} />
             }
             <Routes>
             <Route element={ <Navbar theme={theme} setTheme={setTheme}/>} />
-              
               <Route path="/newpost" element={<Upload />} />
               <Route path="/form" element={<Form />} />
               <Route path="/updateform" element={<Patchitems />} />
-              <Route path="/login" element={<Login />} />
               <Route path='/profile' element={<Profile />} />
             </Routes>
           </>

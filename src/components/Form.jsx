@@ -146,11 +146,9 @@ export default function ProductForm() {
             onChange={(e) => setSelectedFile(e.currentTarget.files[0])}
           />
 {/* <Upload>
-
 <Button onChange={(e) => setSelectedFile(e.currentTarget.files[0])} >
 <UploadOutlined /> Click to Upload
 </Button>
-
 </Upload> */}
         </Form.Item>
         <Button type="primary" htmlType="submit">

@@ -13,8 +13,8 @@ export default function Patchitems() {
 
   const handleAccountUpdate = (values) => {
     console.log("values ->", values);
-    fetch("https://united-backk.web.app/items" , {
-      //  fetch("http://127.0.0.1:5002/items/" ,{
+    // fetch("https://united-backk.web.app/items" , {
+       fetch("http://127.0.0.1:5002/items/" ,{
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values)
